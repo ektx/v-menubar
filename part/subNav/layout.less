@@ -1,0 +1,110 @@
+
+.vmenunav-subnav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    max-width: 400px;
+    min-width: 100px;
+    visibility: hidden;
+    padding: 5px 0;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, .1);
+    border-radius: 2px;
+    background: rgba(255, 255, 255, .95);
+    overflow: auto;
+
+    li {
+        position: relative;
+
+        &.current {
+            background: #2196F3;
+            
+            & > .vmenunav-link {
+                span, 
+                a {
+                    color: #fff;
+                }
+                em:after {
+                    border-left-color: #fff;
+                }
+            }
+        }
+
+        hr {
+            height: 2px;
+            margin: 3px 0;
+            border: none;
+            background-color: rgba(221, 221, 221, .8);
+            pointer-events: none;
+        }
+    }
+}
+
+.vmenunav-link {
+    display: flex;
+    pointer-events: none;
+    padding: 0 .5em;
+    height: 30px;
+    align-items: center;
+
+    .help:empty,
+    .ico:empty {
+        display: none;
+    }
+
+    .ico {
+        display: flex;
+        height: 16px;
+        width: 16px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding-right: 4px;
+    }
+
+    .title {
+        flex: 1;
+        overflow: hidden;
+
+        span, a {
+            display: block;
+            color: #333;
+            font-size: 14px;
+            line-height: 30px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        a {
+            pointer-events: auto;
+        }
+    }
+
+    .help {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+        em {
+            &:after {
+                content: '';
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border: .5em solid transparent;
+                border-right: 0;
+                border-left-color: #333;
+            }
+        }
+    }
+}
+
+@supports (backdrop-filter: blur(5px)) {
+    .vmenunav-subnav {
+        backdrop-filter: blur(5px);
+        background: rgba(255, 255, 255, .75);
+    }
+}

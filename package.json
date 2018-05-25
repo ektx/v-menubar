@@ -1,0 +1,15 @@
+{
+  "name": "@ektx/v-menubar",
+  "version": "0.0.1",
+  "description": "like macos top menu",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "macos",
+    "nav"
+  ],
+  "author": "ektx",
+  "license": "MIT"
+}
