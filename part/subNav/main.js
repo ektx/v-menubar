@@ -62,7 +62,7 @@ export default {
 
             // 隐藏所有菜单
             this.$parent.mainNavIndex = -1
-            console.log('隐藏所有菜单')
+            
             if (nav.hasOwnProperty('fun')) {
                 nav.fun()
             }

@@ -1,6 +1,6 @@
 {
   "name": "@ektx/v-menubar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "like macos top menu",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,10 @@
     "macos",
     "nav"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ektx/v-menubar"    
+  },
   "author": "ektx",
   "license": "MIT"
 }
