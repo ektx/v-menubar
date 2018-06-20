@@ -70,6 +70,8 @@ export default {
         toggleClasses (index) {
             let nav = this.formatNav[index]
 
+            if (!nav) return
+
             if (
                 Array.isArray( nav.classes ) && 
                 nav.classes.includes('current')

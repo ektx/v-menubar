@@ -1,5 +1,7 @@
 # VMenuBar 
+
 仿 MacOS 主菜单效果
+
 ![](http://wx2.sinaimg.cn/large/9444af88gy1frnnyr2hc9g20m808njz4.gif)
 
 ## 使用
