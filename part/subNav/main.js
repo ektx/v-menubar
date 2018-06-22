@@ -82,8 +82,8 @@ export default {
             // 设置默认值
             let x = 0
             let y = 0
+            let height = 'auto'
             let width = ulInfo.width + 'px'
-            ulInfo.height = UL.scrollHeight + 'px'
             // 高度可用空间
             let heightLast = window.innerHeight - mainNavInfo.height
 
@@ -126,7 +126,7 @@ export default {
             return {
                 visibility: 'visible',
                 transform: `translate3D(${x}px, ${y}px, 0)`,
-                height: ulInfo.height,
+                height,
                 width
             }
         }

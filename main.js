@@ -59,7 +59,6 @@ export default {
 
             if ( nav.children ) {
                 this.mainNav = evt.target.getBoundingClientRect()
-                this.mainNav.height = evt.target.scrollHeight
                 let y = this.mainNav.y + this.mainNav.height
 
                 this.$nextTick(() => {
