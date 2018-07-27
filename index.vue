@@ -1,8 +1,8 @@
 <template>
     <div class="main-nav">
-        <ul class="v-menu-top-bar">
+        <ul :class="['v-menu-top-bar', direction, overflow]">
             <li 
-                v-for="(menu, index) in formatNav" 
+                v-for="(menu, index) in nav" 
                 :key="index"
                 :class="menu.classes"
                 @click="selectedNav(index, $event)"
@@ -12,7 +12,7 @@
                     v-else-if="menu.to"
                     :to="menu.to"
                 >{{ menu.title }}</router-link>
-                <span v-else href="menu.to">{{ menu.title }}</span>
+                <span v-else>{{ menu.title }}</span>
             </li>
         </ul>
 

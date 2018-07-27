@@ -1,19 +1,18 @@
 <template>
     <div class="sub-main-nav">
-        <template 
-            v-if="showNav"
-            v-for="(menu, mindex) in showNav"
-        >
+        <template v-if="showNav">
         <ul 
             class="vmenunav-subnav" 
             :style="menu.childLayer"
             :key="mindex"
+            v-for="(menu, mindex) in showNav"
         >
             <li 
                 v-for="(sMenu, sindex) in menu.children" 
                 :key="sindex"
                 :class="sMenu.classes"
-                @mouseover="mouseOverNav(sindex, $event, mindex)"
+                @mouseover="mouseOverNav(sindex, $event, mindex, sMenu)"
+                @mouseout="mouseoutItem(sMenu)"
                 @click="subClick(sindex, mindex, $event)"
             >
                 <div v-if="!sMenu.type" class="vmenunav-link">

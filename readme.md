@@ -92,9 +92,20 @@ export default {
 ```
 
 ## Props
-- nav `[array]` 菜单数据
-    - title `[string]` 标题
-    - ico `[string]` 小图标（暂支持字符串）
-    - to `[string]` 路由跳转
-    - href `[string]` html原生跳转（a 链接）
-    - target `[string]` 可选，指定 A 链接的跳转方式
+
+| 属性      | 类型                         | 说明           | 默认值 |
+| --------- | ---------------------------- | -------------- | ------ |
+| nav       | Array                        | 菜单内容       | -      |
+| direction | String,可选内容为['', 'end'] | 菜单的方向控制 | -      |
+|           |                              |                |        |
+
+### Nav 
+
+| 属性   | 类型   | 说明                                                         | 默认值 |
+| ------ | ------ | ------------------------------------------------------------ | ------ |
+| title  | String | 显示文字                                                     | -      |
+| ico    | String | 小图标地址                                                   | -      |
+| to     | String | 路由地址                                                     | -      |
+| href   | String | 外部地址；html原生跳转（a 链接）                             | -      |
+| target | String | 指定跳转方式；可以参考 [html a target](http://www.w3school.com.cn/tags/att_a_target.asp) | -      |
+

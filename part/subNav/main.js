@@ -6,19 +6,21 @@ export default {
             // 显示效果
             showNav: [],
             // 懒加载菜单
-            lazyShow: null
+            lazyShow: null,
+            // 缓存菜单状态
+            holdItem: {}
         }
     },
     watch: {
-        subNavs (val, old) {
+        subNavs (val) {
             if (val) this.showNav = val
         }
     },
     methods: {
-        mouseOverNav (i, evt, level) {
+        mouseOverNav (i, evt, level, item) {
             evt.stopPropagation()
             let nav = null
-            let removedNav = () => {
+            let appendChild = () => {
                 if ( nav.children && evt.target.tagName === 'LI' ) {
                     this.showNav.push( nav )
                    
@@ -34,25 +36,35 @@ export default {
             
             clearTimeout(this.lazyShow)
 
+            // 如果状态缓存中有同级值
+            let _HoldItem = this.holdItem[level]
+            if (_HoldItem) {
+                _HoldItem.item.classes = null
+                item.classes = ['current']
+            }
+            item.classes = ['current']
+            // 缓存目前状态效果
+            this.holdItem[level] = {item, index: i}
+
+            // 为父级添加选中效果
+            this.showNav[level].classes = ['current']
+
             this.lazyShow = setTimeout(() => {
                 // 添加显示效果
                 this.showNav[level].children.forEach((val, index) => {
-                    if (i === index) {
-                        nav = val
-                        val.classes = ['current']
-                    } else {
-                        val.classes = []
-                    }
+                    if (i === index) nav = val
                 })
-                // 为父级添加选中效果
-                this.showNav[level].classes = ['current']
             
                 // 删除不必要的菜单内容
                 this.showNav.splice( level+1 )
 
-                this.$nextTick(removedNav)
+                this.$nextTick(appendChild)
 
-            }, 70)
+            }, 100)
+        },
+
+        mouseoutItem (item) {
+            item.classes = null
         },
 
         subClick (i, level, evt) {
@@ -125,7 +137,7 @@ export default {
 
             return {
                 visibility: 'visible',
-                transform: `translate3D(${x}px, ${y}px, 0)`,
+                transform: `translate3D(${x}px, ${y}px, 0px)`,
                 height: ulInfo.height,
                 width
             }

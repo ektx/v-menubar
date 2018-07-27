@@ -4,10 +4,19 @@
 .v-menu-top-bar {
     display: flex;
     height: 100%;
+    overflow: auto;
+
+    &.end {
+        justify-content: flex-end
+    }
+    &.hidden {
+        overflow: hidden;
+    }
 
     li {
         display: inline-block;
         align-items: center;
+        user-select: none;
 
         & > span,
         & > a {
@@ -16,6 +25,7 @@
             padding: 0 1em;
             color: #333;
             font-size: 14px;
+            white-space: nowrap;
             align-items: center;
         }
         span {
